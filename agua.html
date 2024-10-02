@@ -5,8 +5,9 @@
 	<script src="agua.js"></script>
 </head>
 <body>
-	<h1>Cu&aacute;nta agua estoy pagando?</h1>
-	<form >
+	<div class="container">
+		<h1>Cu&aacute;nta agua estoy pagando?</h1>
+		<form >
 			<div class="row">
 				<label for="name" class="form-label">Tu nombre:</label>
 				<input type="text" name="name" id="name" class="form-control" />
@@ -26,33 +27,33 @@
 				<label for="consumo" class="form-label">&Uacute;ltimo Consumo en M3:</label>
 				<input type="text" name="consumo" id="consumo" class="form-control" value="12" />
 			</div>
-		
-	</div>
-	<br>
-	<div class="col">
-		<button type="button" class="btn btn-primary" onclick="calcYear()">Calcular</button>
-	</div>
-</form>	
+			
+			<br>
+			<div class="col">
+				<button type="button" class="btn btn-primary" onclick="calcYear()">Calcular</button>
+			</div>
+		</form>	
 
-<div id="infograpy1" class="container-fluid">
-	<div id="waterGraph" class="row">
-		
-	</div>
-	<p id="info1p">
+		<div id="infograpy1" class="container-fluid">
+			<div id="waterGraph" class="row">
 
-	</p>
-	<div id="monthsGraph" class="row">
-		
-	</div>
-	<p id="info2p">
+			</div>
+			<p id="info1p">
 
-	</p>
-	<div id="housesGraph" class="row">
-		
-	</div>
-	<p id="info3p">
+			</p>
+			<div id="monthsGraph" class="row">
 
-	</p>
-</div>
+			</div>
+			<p id="info2p">
+
+			</p>
+			<div id="housesGraph" class="row">
+
+			</div>
+			<p id="info3p">
+
+			</p>
+		</div>
+	</div>
 </body>
 </html>
