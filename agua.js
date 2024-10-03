@@ -12,6 +12,12 @@ let colCop = new Intl.NumberFormat('es-CO', {
     currency: 'COP',
 });
 
+const miles = new Intl.NumberFormat('en-US', {
+  style: 'decimal',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+});
+
 
 function calcYear() {
  
@@ -47,34 +53,38 @@ function calcYear() {
 
 
 	const info1p = document.getElementById("info1p");
-	info1p.innerHTML = `${name} por los mismos <strong>${colCop.format(bimonthValue)}</strong> que 
-		pagaste de agua en el &uacute;ltimo recibo por <strong>${consume} m3</strong> que 
-		consumiste, postob&oacute;n recibi&oacute; <strong>${postobonM3} m3 </strong>
-		esto es <strong>${monthFactor}</strong> veces m&aacute;s que tu!<br><br>`;
-
-	
+	info1p.innerHTML = `El recuadro azúl los <strong>${miles.format(postobonM3)}m3</strong> que Postobón habría recibido por 
+		los <strong>${colCop.format(bimonthValue)}</strong> que pagaste en tu último recibo.<br>
+	 El recuadro amarillo son los <strong>${consume}m3</strong> que tu recibiste.<br>
+	 Postobón recibe <strong>${miles.format(monthFactor)}</strong> veces más agua que tu por 
+	 el mismo dinero!`
 
 	
 	const waterGraph = document.getElementById("waterGraph");
 	//calculando altura agua postobón
 	let waterP=Math.sqrt(postobonM3);
-	let xAxe = (500-waterP*2)/2;
 	//#fe3b99
 	//#3260a8
 	//#bf0f0f
 	//agua postobon: #123586
+	//agua usuario: #fcd303
 	let waterHeightU  = Math.sqrt(consume);
+	//ancho de pantalla
+	let widhtMax = window.screen.width;
+	//inicio imagen
+	console.log("widhtMax:"+widhtMax);
+	let xAxe = widhtMax-(waterP*3);
+
 	waterGraph.innerHTML = `
-		<svg  xmlns="http://www.w3.org/2000/svg" width="500" height="${waterP*2.5}" >
+		<svg  xmlns="http://www.w3.org/2000/svg" width="${widhtMax}" height="${waterP*2.5}" >
 		<rect width="${waterP*2}" height="${waterP*2}"
 		stroke="black"  stroke-width="1"
-		fill-opacity="0.8"
 		x="${xAxe}" y="0"
 		fill="#123586" />
 		<image href="postobonlogo.jpg" height="200" width="${waterP*2}" x="${xAxe}" />
 		<rect width="${waterHeightU*2}" 
 		height="${waterHeightU*2}" x="${xAxe}" y="${(waterP*2)-(waterHeightU*2)}" 
-		fill="#bf0f0f" />
+		fill="#fcd303" />
 		</svg>`;
 
 	const info2p = document.getElementById("info2p");
