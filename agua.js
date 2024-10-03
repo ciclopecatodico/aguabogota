@@ -124,8 +124,8 @@ function fillWather(){
 	<rect width="${waterUW}" 
 	height="${waterUW}" x="${(waterPW+xAxe)-waterUW}" y="${(waterPW)-(waterUW)}" 
 	fill="#fcd303" />
-	<text x="${xAxe}" y="20" fill="#ff1401" >Agua para &darr;</text>
-	<text x="${xAxe+10}" y="${waterPW-5}" fill="#fcd303" >Agua para ${name} &rarr;</text>
+	<text x="${xAxe}" y="20" fill="#ff1401" font-size="20px" >Agua para &darr;</text>
+	<text x="${xAxe+10}" y="${waterPW-5}" fill="#fcd303" font-size="16px" >Agua para ${name} &rarr;</text>
 	</svg>`;
 
 	info1p.innerHTML = `El recuadro azúl los <strong>${miles.format(postobonM3)}m3</strong> que Postobón habría recibido por 
