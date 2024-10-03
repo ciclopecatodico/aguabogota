@@ -22,7 +22,6 @@ const miles = new Intl.NumberFormat('en-US', {
 function calcYear() {
  
  	var name = document.getElementById("name").value; 
- 	name = `Hola ${name}`;
 	var estrato = document.getElementById("estrato").value;
 	//console.log("estrato: "+estrato);
 	//console.log("basicCharge[estrato]: "+basicCharge[estrato]);
@@ -50,6 +49,7 @@ function calcYear() {
 	console.log("monthsAtPostobonPrice: "+monthsAtPostobonPrice);
 	console.log("yearsAtPostobonPrice: "+yearsAtPostobonPrice);
 	console.log("postobonYearPrice: "+postobonYearPrice);
+	console.log("postobonM3: "+postobonM3);
 
 
 	const info1p = document.getElementById("info1p");
@@ -61,30 +61,37 @@ function calcYear() {
 
 	
 	const waterGraph = document.getElementById("waterGraph");
+
+	let widhtMax = window.screen.width;
+	let heightMax = widhtMax;
 	//calculando altura agua postobón
-	let waterP=Math.sqrt(postobonM3);
+	let waterPW=2*Math.sqrt(postobonM3);
+	let waterPH=waterPW;
 	//#fe3b99
 	//#3260a8
 	//#bf0f0f
 	//agua postobon: #123586
 	//agua usuario: #fcd303
-	let waterHeightU  = Math.sqrt(consume);
+	let waterUW  = 2*Math.sqrt(consume);
 	//ancho de pantalla
-	let widhtMax = window.screen.width;
+	
 	//inicio imagen
 	console.log("widhtMax:"+widhtMax);
-	let xAxe = widhtMax-(waterP*3);
+	let xAxe = (widhtMax-waterPW)/3;
 
 	waterGraph.innerHTML = `
-		<svg  xmlns="http://www.w3.org/2000/svg" width="${widhtMax}" height="${waterP*2.5}" >
-		<rect width="${waterP*2}" height="${waterP*2}"
+		<svg  xmlns="http://www.w3.org/2000/svg" width="${widhtMax}" height="${waterPH+20}" >
+		<rect width="${waterPW}" height="${waterPH}"
 		stroke="black"  stroke-width="1"
 		x="${xAxe}" y="0"
 		fill="#123586" />
-		<image href="postobonlogo.jpg" height="200" width="${waterP*2}" x="${xAxe}" />
-		<rect width="${waterHeightU*2}" 
-		height="${waterHeightU*2}" x="${xAxe}" y="${(waterP*2)-(waterHeightU*2)}" 
+		
+		<image href="postobonlogo.jpg" width="${waterPW}" x="${xAxe}"  y="30" />
+		<rect width="${waterUW}" 
+		height="${waterUW}" x="${xAxe}" y="${(waterPW)-(waterUW)}" 
 		fill="#fcd303" />
+		<text x="${2*xAxe}" y="20" fill="#ff1401" >Agua de &darr;</text>
+		<text x="${1.3*xAxe}" y="${(waterPW)-(waterUW)}" fill="#fcd303" >&larr; Agua de ${name}</text>
 		</svg>`;
 
 	const info2p = document.getElementById("info2p");
@@ -96,14 +103,14 @@ function calcYear() {
 	const monthsGraph = document.getElementById("monthsGraph");
 
 	monthsGraph.innerHTML = `
-		<svg  xmlns="http://www.w3.org/2000/svg" width="500" height="${waterP*2.5}" >
-		<rect width="${waterP*2}" height="${waterP*2}"
+		<svg  xmlns="http://www.w3.org/2000/svg" width="500" height="${waterPW*2.5}" >
+		<rect width="${waterPW*2}" height="${waterPW*2}"
 		stroke="black"  stroke-width="1"
 		fill-opacity="0.8"
 		x="${xAxe}" y="0"
 		fill="blue" />
-		<rect width="${waterHeightU*2}" 
-		height="${waterHeightU*2}" x="${xAxe}" y="${(waterP*2)-(waterHeightU*2)}" 
+		<rect width="${waterUW*2}" 
+		height="${waterUW*2}" x="${xAxe}" y="${(waterPW*2)-(waterUW*2)}" 
 		fill="red" />
 		</svg>`;
 
