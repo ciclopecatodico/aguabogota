@@ -19,7 +19,7 @@
 	<div class="container-fluid">
 		<br>
 		<h1>¿Cu&aacute;nta agua estoy pagando?</h1>
-		<form >
+		<form id="waterForm">
 			<div class="row">
 				<label for="name" class="form-label">Tu nombre:</label>
 				<input type="text" name="name" id="name" class="form-control" />
@@ -46,7 +46,7 @@
 			</div>
 		</form>	
 
-		<div id="infograpy1" class="container-fluid">
+		<div id="infograpy" class="container-fluid">
 			<div id="waterGraph" class="row">
 
 			</div>
@@ -67,9 +67,11 @@
 			</p>
 		</div>
 		<div>
-			Creditos: 
-			<a href="https://x.com/ciclopecatodico">@ciclopecatodico</a>
+			<a href="https://x.com/ciclopecatodico">@ciclopecatodico</a> en X
 		</div>
+
+		<button id="hideButton"  hidden="true" type="button" class="btn btn-primary" onclick="showForm()">Volver</button>
+
 	</div>
 </body>
 </html>

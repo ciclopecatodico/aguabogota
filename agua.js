@@ -77,10 +77,14 @@ function calcYear() {
 		 a&ntilde;o podr&iacute;as haber recibido <strong>${miles.format(monthsAtPostobonPrice)} meses</strong>
 		 el servicio<br>
 		 O <strong>${yearsAtPostobonPrice}</strong> hogares como el tuyo 
-		 hubieran podido recibir agua por <strong>un año!</strong>`;
+		 hubieran podido recibir agua por <strong>un año! </strong>`;
 
 	monthsGraph.innerHTML = ``;
 	info3p.innerHTML = ``;
+
+	document.getElementById('waterForm').hidden = true;
+	document.getElementById('hideButton').hidden = false;
+	document.getElementById('infograpy').hidden = false;
 } 
 
 
@@ -131,4 +135,10 @@ function fillWather(){
 	 el mismo dinero!`
 
 
+}
+
+function showForm(){
+	document.getElementById('waterForm').hidden = false;
+	document.getElementById('hideButton').hidden = true;
+	document.getElementById('infograpy').hidden = true;
 }
