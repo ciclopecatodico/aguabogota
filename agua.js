@@ -75,15 +75,12 @@ function calcYear() {
 	info2p.innerHTML += `Si te vendieran el agua al mismo precio que a postob&oacute;n, 
 		con los <strong>${colCop.format(yearValue)}</strong> que pagaste en el &uacute;ltimo 
 		 a&ntilde;o podr&iacute;as haber recibido <strong>${miles.format(monthsAtPostobonPrice)} meses</strong>
-		 el servicio`;
-
-
-	monthsGraph.innerHTML = `
-		`;
-
-	
-	info3p.innerHTML = `O <strong>${yearsAtPostobonPrice}</strong> hogares como el tuyo 
+		 el servicio<br>
+		 O <strong>${yearsAtPostobonPrice}</strong> hogares como el tuyo 
 		 hubieran podido recibir agua por <strong>un año!</strong>`;
+
+	monthsGraph.innerHTML = ``;
+	info3p.innerHTML = ``;
 } 
 
 
@@ -121,10 +118,10 @@ function fillWather(){
 	
 	<image href="postobonlogo.jpg" width="${waterPW}" x="${xAxe}"  y="30" />
 	<rect width="${waterUW}" 
-	height="${waterUW}" x="${xAxe}" y="${(waterPW)-(waterUW)}" 
+	height="${waterUW}" x="${(waterPW+xAxe)-waterUW}" y="${(waterPW)-(waterUW)}" 
 	fill="#fcd303" />
-	<text x="${2*xAxe}" y="20" fill="#ff1401" >Agua para &darr;</text>
-	<text x="${1.3*xAxe}" y="${(waterPW)-(waterUW)}" fill="#fcd303" >&larr; Agua para ${name}</text>
+	<text x="${xAxe}" y="20" fill="#ff1401" >Agua para &darr;</text>
+	<text x="${xAxe+10}" y="${waterPW-5}" fill="#fcd303" >Agua para ${name} &rarr;</text>
 	</svg>`;
 
 	info1p.innerHTML = `El recuadro azúl los <strong>${miles.format(postobonM3)}m3</strong> que Postobón habría recibido por 
