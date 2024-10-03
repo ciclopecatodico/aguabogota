@@ -128,7 +128,7 @@ function fillWather(){
 	<text x="${xAxe+10}" y="${waterPW-5}" fill="#fcd303" font-size="16px" >Agua para ${name} &rarr;</text>
 	</svg>`;
 
-	info1p.innerHTML = `El recuadro azúl los <strong>${miles.format(postobonM3)}m3</strong> que Postobón habría recibido por 
+	info1p.innerHTML = `El recuadro azúl son los <strong>${miles.format(postobonM3)}m3</strong> que Postobón habría recibido por 
 		los <strong>${colCop.format(bimonthValue)}</strong> que pagaste en tu último recibo.<br>
 	 El recuadro amarillo son los <strong>${consume}m3</strong> que tu recibiste.<br>
 	 Postobón recibe <strong>${miles.format(monthFactor)}</strong> veces más agua que tu por 
