@@ -72,7 +72,7 @@ function calcYear() {
 
 	fillWather();
 
-	info2p.innerHTML += `Si te vendieran el agua al mismo precio que a postob&oacute;n, 
+	info2p.innerHTML += `Si te vendieran el agua al mismo precio que a postob&oacute;n, <strong>28 pesos el M3</strong>,
 		con los <strong>${colCop.format(yearValue)}</strong> que pagaste en el &uacute;ltimo 
 		 a&ntilde;o podr&iacute;as haber recibido <strong>${miles.format(monthsAtPostobonPrice)} meses</strong>
 		 el servicio<br>
